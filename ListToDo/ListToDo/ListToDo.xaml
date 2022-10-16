@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListToDo.MainPage"
+             xmlns:local="clr-namespace:ListToDo" >
+    <StackLayout>
+        <Frame Background="aqua" Padding="24" BackgroundColor="#000000" >
+                <Label>Task List</Label>
+            </Frame>
+
+        <Label>YOUR TASK</Label>
+        <ListView ItemsSource="{Binding TasksList}" RowHeight="85" >
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <local:TaskWork/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+        
+
+        <!--<Label>Header task</Label>
+        <Entry Text="{Binding NewTaskHeader, Mode=TwoWay}" />
+        <Label>Description task</Label>
+        <Entry Text="{Binding NewTaskDescription, Mode=TwoWay}"/>-->
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinitions Width="*" />
+            <ColumnDefinitions Width="*" />
+        </Grid.ColumnDefinitions>-->
+
+        <!--<Button Text="Add" Grid.Column="1" Command="{Binding AddNewTaskCommand}"/>-->
+
+        <!--<Button Text="Add Task" Grid.Column="1" Command="{Binding AddNewTaskWindowCommand}" Clicked="Button_Clicked"/>
+
+        <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteTaskCommand}"/>-->
+
+    </StackLayout>
+
+
+</ContentPage>

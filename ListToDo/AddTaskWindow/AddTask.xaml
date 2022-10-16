@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ListToDo.AddTaskWindow.AddTask" 
+             xmlns:local="clr-namespace:ListToDo">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Background="LightPink" Padding="24" BackgroundColor="#000000" >
+                <Label HorizontalOptions="CenterAndExpand" FontFamily="Consolas" FontSize="Large" 
+                       FontAttributes="Bold" TextColor="Black" VerticalOptions="Center">Task List</Label>
+            </Frame>
+
+            <ListView ItemsSource="{Binding TasksList}" RowHeight="85" SelectedItem="{Binding SelectedItem }"  >
+                <ListView.ItemTemplate Command="{Binding TaskDoingCommand}">
+                    <DataTemplate >
+                        <local:TaskWork/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label  VerticalOptions="Center" >Header task</Label>
+            <Entry  VerticalOptions="Center" Text="{Binding NewTaskHeader, Mode=TwoWay}" />
+            <Label  VerticalOptions="Center" >Description task</Label>
+            <Entry  VerticalOptions="Center"  Text="{Binding NewTaskDescription, Mode=TwoWay}"/>
+
+
+            <Button Text="Add" Grid.Column="1" Command="{Binding AddNewTaskCommand}"  
+                    BorderWidth="2"  
+                    CornerRadius="50"
+                    TextColor="LightPink"
+                    BorderColor="Pink"
+                    BackgroundColor="Transparent"
+                    WidthRequest="15" Margin="5"  HeightRequest="50"/>
+
+            <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteTaskCommand}"
+                    BorderWidth="2"
+                    CornerRadius="50"
+                    TextColor="LightPink"
+                    BorderColor="Pink"
+                    BackgroundColor="Transparent"
+                    WidthRequest="15" Margin="5" HeightRequest="50"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
+    
